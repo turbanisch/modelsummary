@@ -20,6 +20,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -32,7 +34,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">modelsummary</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.11.0</span>
       </span>
     </div>
 
@@ -70,8 +72,9 @@
 
       </header><script src="appearance_files/accessible-code-block-0.0.1/empty-anchor.js"></script><script src="appearance_files/kePrint-0.0.1/kePrint.js"></script><link href="appearance_files/lightable-0.0.1/lightable.css" rel="stylesheet">
 <link href="appearance_files/tabwid-1.0.0/tabwid.css" rel="stylesheet">
+<link href="appearance_files/tabwid-1.0.0/scrool.css" rel="stylesheet">
 <script src="appearance_files/htmlwidgets-1.5.4/htmlwidgets.js"></script><link href="appearance_files/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
-<script src="appearance_files/datatables-binding-0.20/datatables.js"></script><script src="appearance_files/jquery-3.6.0/jquery-3.6.0.min.js"></script><link href="appearance_files/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet">
+<script src="appearance_files/datatables-binding-0.23/datatables.js"></script><link href="appearance_files/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet">
 <link href="appearance_files/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet">
 <script src="appearance_files/dt-core-1.11.3/js/jquery.dataTables.min.js"></script><link href="appearance_files/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
 <script src="appearance_files/crosstalk-1.2.0/js/crosstalk.min.js"></script><div class="row">
@@ -80,7 +83,7 @@
       <h1 data-toc-skip>Customizing the look of your table</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/vincentarelbundock/modelsummary/blob/master/vignettes/appearance.Rmd"><code>vignettes/appearance.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/vincentarelbundock/modelsummary/blob/HEAD/vignettes/appearance.Rmd" class="external-link"><code>vignettes/appearance.Rmd</code></a></small>
       <div class="hidden name"><code>appearance.Rmd</code></div>
 
     </div>
@@ -89,31 +92,31 @@
     
 <p>To customize the appearance of tables, <code>modelsummary</code> supports four of the most popular table-making packages:</p>
 <ol style="list-style-type: decimal">
-<li><a href="https://gt.rstudio.com"><code>gt</code>: https://gt.rstudio.com</a></li>
-<li><a href="http://haozhu233.github.io/kableExtra"><code>kableExtra</code>: http://haozhu233.github.io/kableExtra</a></li>
-<li><a href="https://hughjonesd.github.io/huxtable/"><code>huxtable</code>: https://hughjonesd.github.io/huxtable/</a></li>
-<li><a href="https://davidgohel.github.io/flextable/"><code>flextable</code>: https://davidgohel.github.io/flextable/</a></li>
+<li><a href="https://gt.rstudio.com" class="external-link"><code>gt</code>: https://gt.rstudio.com</a></li>
+<li><a href="http://haozhu233.github.io/kableExtra" class="external-link"><code>kableExtra</code>: http://haozhu233.github.io/kableExtra</a></li>
+<li><a href="https://hughjonesd.github.io/huxtable/" class="external-link"><code>huxtable</code>: https://hughjonesd.github.io/huxtable/</a></li>
+<li><a href="https://davidgohel.github.io/flextable/" class="external-link"><code>flextable</code>: https://davidgohel.github.io/flextable/</a></li>
 </ol>
 <p>Users are encouraged to visit these websites to determine which package suits their needs best. Each of them has different strengths and weaknesses. For instance, <code>gt</code> allows seamless integration with the RStudio IDE, but <code>kableExtra</code>’s LaTeX (and PDF) output is far more mature.</p>
 <p>To create customized tables, the analyst begins by calling <code>modelsummary(models)</code> to create a summary table. Then, she <em>post-processes</em> the table by applying functions from one of the packages listed above. It is often convenient to use the <code>%&gt;%</code> operator to do this.</p>
-<p>To illustrate, we download data from the <a href="https://vincentarelbundock.github.io/Rdatasets'">Rdatasets repository</a> and we estimate 5 models:</p>
+<p>To illustrate, we download data from the <a href="https://vincentarelbundock.github.io/Rdatasets'" class="external-link">Rdatasets repository</a> and we estimate 5 models:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://vincentarelbundock.github.io/modelsummary/">modelsummary</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://vincentarelbundock.github.io/modelsummary/" class="external-link">modelsummary</a></span><span class="op">)</span>
 
 <span class="va">url</span> <span class="op">&lt;-</span> <span class="st">'https://vincentarelbundock.github.io/Rdatasets/csv/HistData/Guerry.csv'</span>
-<span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="va">url</span><span class="op">)</span>
+<span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span><span class="va">url</span><span class="op">)</span>
 
-<span class="va">models</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="op">)</span>
-<span class="va">models</span><span class="op">[[</span><span class="st">'OLS 1'</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">Donations</span> <span class="op">~</span> <span class="va">Literacy</span>, data <span class="op">=</span> <span class="va">dat</span><span class="op">)</span>
-<span class="va">models</span><span class="op">[[</span><span class="st">'Poisson 1'</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html">glm</a></span><span class="op">(</span><span class="va">Donations</span> <span class="op">~</span> <span class="va">Literacy</span> <span class="op">+</span> <span class="va">Clergy</span>, family <span class="op">=</span> <span class="va">poisson</span>, data <span class="op">=</span> <span class="va">dat</span><span class="op">)</span>
-<span class="va">models</span><span class="op">[[</span><span class="st">'OLS 2'</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">Crime_pers</span> <span class="op">~</span> <span class="va">Literacy</span>, data <span class="op">=</span> <span class="va">dat</span><span class="op">)</span>
-<span class="va">models</span><span class="op">[[</span><span class="st">'Poisson 2'</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html">glm</a></span><span class="op">(</span><span class="va">Crime_pers</span> <span class="op">~</span> <span class="va">Literacy</span> <span class="op">+</span> <span class="va">Clergy</span>, family <span class="op">=</span> <span class="va">poisson</span>, data <span class="op">=</span> <span class="va">dat</span><span class="op">)</span>
-<span class="va">models</span><span class="op">[[</span><span class="st">'OLS 3'</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">Crime_prop</span> <span class="op">~</span> <span class="va">Literacy</span> <span class="op">+</span> <span class="va">Clergy</span>, data <span class="op">=</span> <span class="va">dat</span><span class="op">)</span></code></pre></div>
+<span class="va">models</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span>
+<span class="va">models</span><span class="op">[[</span><span class="st">'OLS 1'</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">Donations</span> <span class="op">~</span> <span class="va">Literacy</span>, data <span class="op">=</span> <span class="va">dat</span><span class="op">)</span>
+<span class="va">models</span><span class="op">[[</span><span class="st">'Poisson 1'</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html" class="external-link">glm</a></span><span class="op">(</span><span class="va">Donations</span> <span class="op">~</span> <span class="va">Literacy</span> <span class="op">+</span> <span class="va">Clergy</span>, family <span class="op">=</span> <span class="va">poisson</span>, data <span class="op">=</span> <span class="va">dat</span><span class="op">)</span>
+<span class="va">models</span><span class="op">[[</span><span class="st">'OLS 2'</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">Crime_pers</span> <span class="op">~</span> <span class="va">Literacy</span>, data <span class="op">=</span> <span class="va">dat</span><span class="op">)</span>
+<span class="va">models</span><span class="op">[[</span><span class="st">'Poisson 2'</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html" class="external-link">glm</a></span><span class="op">(</span><span class="va">Crime_pers</span> <span class="op">~</span> <span class="va">Literacy</span> <span class="op">+</span> <span class="va">Clergy</span>, family <span class="op">=</span> <span class="va">poisson</span>, data <span class="op">=</span> <span class="va">dat</span><span class="op">)</span>
+<span class="va">models</span><span class="op">[[</span><span class="st">'OLS 3'</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">Crime_prop</span> <span class="op">~</span> <span class="va">Literacy</span> <span class="op">+</span> <span class="va">Clergy</span>, data <span class="op">=</span> <span class="va">dat</span><span class="op">)</span></code></pre></div>
 <p>In the rest of this vignette, we will customize tables using tools supplied by the <code>gt</code>, <code>kableExtra</code>, <code>flextable</code>, and <code>huxtable</code> packages. In each case, the pattern will be similar. First, we create a table by calling <code>modelsummary</code> and by specifying the output format with the <code>output</code> parameter. Then, we will use functions from the four packages to customize the appearance of our tables.</p>
-<div id="gt" class="section level1">
-<h1 class="hasAnchor">
-<a href="#gt" class="anchor"></a><code>gt</code>
-</h1>
+<div class="section level2">
+<h2 id="gt">
+<code>gt</code><a class="anchor" aria-label="anchor" href="#gt"></a>
+</h2>
 <p>To illustrate how to customize tables using the <code>gt</code> package we will use the following functions from the <code>gt</code> package:</p>
 <ul>
 <li>
@@ -126,7 +129,7 @@
 <p>To produce a “cleaner” look, we will also use <code>modelsummary</code>’s <code>stars</code>, <code>coef_map</code>, <code>gof_omit</code>, and <code>title</code> arguments.</p>
 <p>Note that in order to access <code>gt</code> functions, we must first load the library.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://gt.rstudio.com/">gt</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://gt.rstudio.com/" class="external-link">gt</a></span><span class="op">)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Attaching package: 'gt'</span>
 <span class="co">#&gt; The following object is masked from 'package:modelsummary':</span>
@@ -134,40 +137,45 @@
 <span class="co">#&gt;     escape_latex</span>
 
 <span class="co"># build table with `modelsummary` </span>
-<span class="va">cm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span> <span class="st">'(Intercept)'</span> <span class="op">=</span> <span class="st">'Constant'</span>, <span class="st">'Literacy'</span> <span class="op">=</span> <span class="st">'Literacy (%)'</span>, <span class="st">'Clergy'</span> <span class="op">=</span> <span class="st">'Priests/capita'</span><span class="op">)</span>
+<span class="va">cm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span> <span class="st">'(Intercept)'</span> <span class="op">=</span> <span class="st">'Constant'</span>, <span class="st">'Literacy'</span> <span class="op">=</span> <span class="st">'Literacy (%)'</span>, <span class="st">'Clergy'</span> <span class="op">=</span> <span class="st">'Priests/capita'</span><span class="op">)</span>
 <span class="va">cap</span> <span class="op">&lt;-</span> <span class="st">'A modelsummary table customized with gt'</span>
 
 <span class="va">tab</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modelsummary.html">modelsummary</a></span><span class="op">(</span><span class="va">models</span>, 
                 output <span class="op">=</span> <span class="st">"gt"</span>,
                 coef_map <span class="op">=</span> <span class="va">cm</span>, stars <span class="op">=</span> <span class="cn">TRUE</span>, 
                 title <span class="op">=</span> <span class="va">cap</span>, gof_omit <span class="op">=</span> <span class="st">'IC|Log|Adj'</span><span class="op">)</span> 
-<span class="co">#&gt; Warning: In version 0.8.0 of the `modelsummary` package, the default significance markers produced by the `stars=TRUE` argument were changed to be consistent with R's defaults.</span>
-<span class="co">#&gt; This warning is displayed once per session.</span>
 
 <span class="co"># customize table with `gt`</span>
 
-<span class="va">tab</span> <span class="op"><a href="https://gt.rstudio.com/reference/pipe.html">%&gt;%</a></span>
+<span class="va">tab</span> <span class="op"><a href="https://gt.rstudio.com/reference/pipe.html" class="external-link">%&gt;%</a></span>
 
     <span class="co"># column labels</span>
-    <span class="fu"><a href="https://gt.rstudio.com/reference/tab_spanner.html">tab_spanner</a></span><span class="op">(</span>label <span class="op">=</span> <span class="st">'Donations'</span>, columns <span class="op">=</span> <span class="fl">2</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span> <span class="op"><a href="https://gt.rstudio.com/reference/pipe.html">%&gt;%</a></span>
-    <span class="fu"><a href="https://gt.rstudio.com/reference/tab_spanner.html">tab_spanner</a></span><span class="op">(</span>label <span class="op">=</span> <span class="st">'Crimes (persons)'</span>, columns <span class="op">=</span> <span class="fl">4</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span> <span class="op"><a href="https://gt.rstudio.com/reference/pipe.html">%&gt;%</a></span>
-    <span class="fu"><a href="https://gt.rstudio.com/reference/tab_spanner.html">tab_spanner</a></span><span class="op">(</span>label <span class="op">=</span> <span class="st">'Crimes (property)'</span>, columns <span class="op">=</span> <span class="fl">6</span><span class="op">)</span> <span class="op"><a href="https://gt.rstudio.com/reference/pipe.html">%&gt;%</a></span>
+    <span class="fu"><a href="https://gt.rstudio.com/reference/tab_spanner.html" class="external-link">tab_spanner</a></span><span class="op">(</span>label <span class="op">=</span> <span class="st">'Donations'</span>, columns <span class="op">=</span> <span class="fl">2</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span> <span class="op"><a href="https://gt.rstudio.com/reference/pipe.html" class="external-link">%&gt;%</a></span>
+    <span class="fu"><a href="https://gt.rstudio.com/reference/tab_spanner.html" class="external-link">tab_spanner</a></span><span class="op">(</span>label <span class="op">=</span> <span class="st">'Crimes (persons)'</span>, columns <span class="op">=</span> <span class="fl">4</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span> <span class="op"><a href="https://gt.rstudio.com/reference/pipe.html" class="external-link">%&gt;%</a></span>
+    <span class="fu"><a href="https://gt.rstudio.com/reference/tab_spanner.html" class="external-link">tab_spanner</a></span><span class="op">(</span>label <span class="op">=</span> <span class="st">'Crimes (property)'</span>, columns <span class="op">=</span> <span class="fl">6</span><span class="op">)</span> <span class="op"><a href="https://gt.rstudio.com/reference/pipe.html" class="external-link">%&gt;%</a></span>
 
     <span class="co"># footnote</span>
-    <span class="fu"><a href="https://gt.rstudio.com/reference/tab_footnote.html">tab_footnote</a></span><span class="op">(</span>footnote <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/md.html">md</a></span><span class="op">(</span><span class="st">"A very **important** variable."</span><span class="op">)</span>,
-                 locations <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/cells_body.html">cells_body</a></span><span class="op">(</span>rows <span class="op">=</span> <span class="fl">3</span>, columns <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://gt.rstudio.com/reference/pipe.html">%&gt;%</a></span>
+    <span class="fu"><a href="https://gt.rstudio.com/reference/tab_footnote.html" class="external-link">tab_footnote</a></span><span class="op">(</span>footnote <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/md.html" class="external-link">md</a></span><span class="op">(</span><span class="st">"A very **important** variable."</span><span class="op">)</span>,
+                 locations <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/cells_body.html" class="external-link">cells_body</a></span><span class="op">(</span>rows <span class="op">=</span> <span class="fl">3</span>, columns <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://gt.rstudio.com/reference/pipe.html" class="external-link">%&gt;%</a></span>
 
     <span class="co"># text and background color</span>
-    <span class="fu"><a href="https://gt.rstudio.com/reference/tab_style.html">tab_style</a></span><span class="op">(</span>style <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/cell_text.html">cell_text</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">'red'</span><span class="op">)</span>,
-              locations <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/cells_body.html">cells_body</a></span><span class="op">(</span>rows <span class="op">=</span> <span class="fl">3</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://gt.rstudio.com/reference/pipe.html">%&gt;%</a></span>
-    <span class="fu"><a href="https://gt.rstudio.com/reference/tab_style.html">tab_style</a></span><span class="op">(</span>style <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/cell_fill.html">cell_fill</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">'lightblue'</span><span class="op">)</span>,
-              locations <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/cells_body.html">cells_body</a></span><span class="op">(</span>rows <span class="op">=</span> <span class="fl">5</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<div id="xxgjbowjbp" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+    <span class="fu"><a href="https://gt.rstudio.com/reference/tab_style.html" class="external-link">tab_style</a></span><span class="op">(</span>style <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/cell_text.html" class="external-link">cell_text</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">'red'</span><span class="op">)</span>,
+              locations <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/cells_body.html" class="external-link">cells_body</a></span><span class="op">(</span>rows <span class="op">=</span> <span class="fl">3</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://gt.rstudio.com/reference/pipe.html" class="external-link">%&gt;%</a></span>
+    <span class="fu"><a href="https://gt.rstudio.com/reference/tab_style.html" class="external-link">tab_style</a></span><span class="op">(</span>style <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/cell_fill.html" class="external-link">cell_fill</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">'lightblue'</span><span class="op">)</span>,
+              locations <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/cells_body.html" class="external-link">cells_body</a></span><span class="op">(</span>rows <span class="op">=</span> <span class="fl">5</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt; Warning in locname == "data" &amp;&amp; colname == .env$colname: 'length(x) = 18 &gt; 1' in</span>
+<span class="co">#&gt; coercion to 'logical(1)'</span>
+
+<span class="co">#&gt; Warning in locname == "data" &amp;&amp; colname == .env$colname: 'length(x) = 18 &gt; 1' in</span>
+<span class="co">#&gt; coercion to 'logical(1)'</span>
+<span class="co">#&gt; Warning in locname == "data" &amp;&amp; colname == .env$colname &amp;&amp; rownum</span>
+<span class="co">#&gt; == .env$rownum: 'length(x) = 18 &gt; 1' in coercion to 'logical(1)'</span></code></pre></div>
+<div id="ljypdcssps" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#xxgjbowjbp .gt_table {
+#ljypdcssps .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -192,7 +200,7 @@
   border-left-color: #D3D3D3;
 }
 
-#xxgjbowjbp .gt_heading {
+#ljypdcssps .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -204,33 +212,37 @@
   border-right-color: #D3D3D3;
 }
 
-#xxgjbowjbp .gt_title {
+#ljypdcssps .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
   padding-top: 4px;
   padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
   border-bottom-color: #FFFFFF;
   border-bottom-width: 0;
 }
 
-#xxgjbowjbp .gt_subtitle {
+#ljypdcssps .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
   padding-top: 0;
   padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
   border-top-color: #FFFFFF;
   border-top-width: 0;
 }
 
-#xxgjbowjbp .gt_bottom_border {
+#ljypdcssps .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#xxgjbowjbp .gt_col_headings {
+#ljypdcssps .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -245,7 +257,7 @@
   border-right-color: #D3D3D3;
 }
 
-#xxgjbowjbp .gt_col_heading {
+#ljypdcssps .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -265,7 +277,7 @@
   overflow-x: hidden;
 }
 
-#xxgjbowjbp .gt_column_spanner_outer {
+#ljypdcssps .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -277,15 +289,15 @@
   padding-right: 4px;
 }
 
-#xxgjbowjbp .gt_column_spanner_outer:first-child {
+#ljypdcssps .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#xxgjbowjbp .gt_column_spanner_outer:last-child {
+#ljypdcssps .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#xxgjbowjbp .gt_column_spanner {
+#ljypdcssps .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -297,8 +309,11 @@
   width: 100%;
 }
 
-#xxgjbowjbp .gt_group_heading {
-  padding: 8px;
+#ljypdcssps .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -319,7 +334,7 @@
   vertical-align: middle;
 }
 
-#xxgjbowjbp .gt_empty_group_heading {
+#ljypdcssps .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -334,15 +349,15 @@
   vertical-align: middle;
 }
 
-#xxgjbowjbp .gt_from_md > :first-child {
+#ljypdcssps .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#xxgjbowjbp .gt_from_md > :last-child {
+#ljypdcssps .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#xxgjbowjbp .gt_row {
+#ljypdcssps .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -361,7 +376,7 @@
   overflow-x: hidden;
 }
 
-#xxgjbowjbp .gt_stub {
+#ljypdcssps .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -370,10 +385,29 @@
   border-right-style: solid;
   border-right-width: 2px;
   border-right-color: #D3D3D3;
-  padding-left: 12px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
-#xxgjbowjbp .gt_summary_row {
+#ljypdcssps .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#ljypdcssps .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#ljypdcssps .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -383,17 +417,26 @@
   padding-right: 5px;
 }
 
-#xxgjbowjbp .gt_first_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
+#ljypdcssps .gt_first_summary_row {
   border-top-style: solid;
-  border-top-width: 2px;
   border-top-color: #D3D3D3;
 }
 
-#xxgjbowjbp .gt_grand_summary_row {
+#ljypdcssps .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#ljypdcssps .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ljypdcssps .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -403,7 +446,7 @@
   padding-right: 5px;
 }
 
-#xxgjbowjbp .gt_first_grand_summary_row {
+#ljypdcssps .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -413,11 +456,11 @@
   border-top-color: #D3D3D3;
 }
 
-#xxgjbowjbp .gt_striped {
+#ljypdcssps .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#xxgjbowjbp .gt_table_body {
+#ljypdcssps .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -426,7 +469,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#xxgjbowjbp .gt_footnotes {
+#ljypdcssps .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -440,13 +483,16 @@
   border-right-color: #D3D3D3;
 }
 
-#xxgjbowjbp .gt_footnote {
+#ljypdcssps .gt_footnote {
   margin: 0px;
   font-size: 90%;
-  padding: 4px;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
-#xxgjbowjbp .gt_sourcenotes {
+#ljypdcssps .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -460,44 +506,80 @@
   border-right-color: #D3D3D3;
 }
 
-#xxgjbowjbp .gt_sourcenote {
+#ljypdcssps .gt_sourcenote {
   font-size: 90%;
-  padding: 4px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
-#xxgjbowjbp .gt_left {
+#ljypdcssps .gt_left {
   text-align: left;
 }
 
-#xxgjbowjbp .gt_center {
+#ljypdcssps .gt_center {
   text-align: center;
 }
 
-#xxgjbowjbp .gt_right {
+#ljypdcssps .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#xxgjbowjbp .gt_font_normal {
+#ljypdcssps .gt_font_normal {
   font-weight: normal;
 }
 
-#xxgjbowjbp .gt_font_bold {
+#ljypdcssps .gt_font_bold {
   font-weight: bold;
 }
 
-#xxgjbowjbp .gt_font_italic {
+#ljypdcssps .gt_font_italic {
   font-style: italic;
 }
 
-#xxgjbowjbp .gt_super {
+#ljypdcssps .gt_super {
   font-size: 65%;
 }
 
-#xxgjbowjbp .gt_footnote_marks {
+#ljypdcssps .gt_two_val_uncert {
+  display: inline-block;
+  line-height: 1em;
+  text-align: right;
+  font-size: 60%;
+  vertical-align: -0.25em;
+  margin-left: 0.1em;
+}
+
+#ljypdcssps .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
-  font-size: 65%;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+#ljypdcssps .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#ljypdcssps .gt_slash_mark {
+  font-size: 0.7em;
+  line-height: 0.7em;
+  vertical-align: 0.15em;
+}
+
+#ljypdcssps .gt_fraction_numerator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: 0.45em;
+}
+
+#ljypdcssps .gt_fraction_denominator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: -0.05em;
 }
 </style>
 <table class="table gt_table">
@@ -598,34 +680,36 @@
 <td class="gt_row gt_center">7905.811</td>
 <td class="gt_row gt_center">7.441</td>
 </tr>
+<tr>
+<td class="gt_row gt_left">RMSE</td>
+<td class="gt_row gt_center">5753.14</td>
+<td class="gt_row gt_center">5727.27</td>
+<td class="gt_row gt_center">7456.23</td>
+<td class="gt_row gt_center">7233.22</td>
+<td class="gt_row gt_center">2793.43</td>
+</tr>
 </tbody>
 <tfoot class="gt_sourcenotes"><tr>
 <td class="gt_sourcenote" colspan="6">+ p &lt; 0.1, * p &lt; 0.05, ** p &lt; 0.01, *** p &lt; 0.001</td>
     </tr></tfoot>
-<tfoot><tr class="gt_footnotes">
-<td colspan="6">
-        <p class="gt_footnote">
-          <sup class="gt_footnote_marks"><em>1</em>
-          </sup>
-           
-          A very <strong>important</strong> variable.
-          <br></p>
-      </td>
+<tfoot class="gt_footnotes"><tr>
+<td class="gt_footnote" colspan="6">
+<sup class="gt_footnote_marks">1</sup> A very <strong>important</strong> variable.</td>
     </tr></tfoot>
 </table>
 </div>
-<p>The <a href="https://gt.rstudio.com"><code>gt</code> website</a> offers many more examples. The possibilities are endless. For instance, <code>gt</code> allows you to embed images in your tables using the <code>text_transform</code> and <code>local_image</code> functions:</p>
+<p>The <a href="https://gt.rstudio.com" class="external-link"><code>gt</code> website</a> offers many more examples. The possibilities are endless. For instance, <code>gt</code> allows you to embed images in your tables using the <code>text_transform</code> and <code>local_image</code> functions:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">f</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://gt.rstudio.com/reference/web_image.html">web_image</a></span><span class="op">(</span>url <span class="op">=</span> <span class="st">"https://user-images.githubusercontent.com/987057/82732352-b9aabf00-9cda-11ea-92a6-26750cf097d0.png"</span>, height <span class="op">=</span> <span class="fl">80</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">f</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://gt.rstudio.com/reference/web_image.html" class="external-link">web_image</a></span><span class="op">(</span>url <span class="op">=</span> <span class="st">"https://user-images.githubusercontent.com/987057/82732352-b9aabf00-9cda-11ea-92a6-26750cf097d0.png"</span>, height <span class="op">=</span> <span class="fl">80</span><span class="op">)</span>
 
-<span class="va">tab</span> <span class="op"><a href="https://gt.rstudio.com/reference/pipe.html">%&gt;%</a></span> 
-    <span class="fu"><a href="https://gt.rstudio.com/reference/text_transform.html">text_transform</a></span><span class="op">(</span>locations <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/cells_body.html">cells_body</a></span><span class="op">(</span>columns <span class="op">=</span> <span class="fl">2</span><span class="op">:</span><span class="fl">6</span>, rows <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>, fn <span class="op">=</span> <span class="va">f</span><span class="op">)</span></code></pre></div>
-<div id="dkzmaabeby" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<span class="va">tab</span> <span class="op"><a href="https://gt.rstudio.com/reference/pipe.html" class="external-link">%&gt;%</a></span> 
+    <span class="fu"><a href="https://gt.rstudio.com/reference/text_transform.html" class="external-link">text_transform</a></span><span class="op">(</span>locations <span class="op">=</span> <span class="fu"><a href="https://gt.rstudio.com/reference/cells_body.html" class="external-link">cells_body</a></span><span class="op">(</span>columns <span class="op">=</span> <span class="fl">2</span><span class="op">:</span><span class="fl">6</span>, rows <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>, fn <span class="op">=</span> <span class="va">f</span><span class="op">)</span></code></pre></div>
+<div id="rrubcagnkt" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#dkzmaabeby .gt_table {
+#rrubcagnkt .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -650,7 +734,7 @@
   border-left-color: #D3D3D3;
 }
 
-#dkzmaabeby .gt_heading {
+#rrubcagnkt .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -662,33 +746,37 @@
   border-right-color: #D3D3D3;
 }
 
-#dkzmaabeby .gt_title {
+#rrubcagnkt .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
   padding-top: 4px;
   padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
   border-bottom-color: #FFFFFF;
   border-bottom-width: 0;
 }
 
-#dkzmaabeby .gt_subtitle {
+#rrubcagnkt .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
   padding-top: 0;
   padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
   border-top-color: #FFFFFF;
   border-top-width: 0;
 }
 
-#dkzmaabeby .gt_bottom_border {
+#rrubcagnkt .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#dkzmaabeby .gt_col_headings {
+#rrubcagnkt .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -703,7 +791,7 @@
   border-right-color: #D3D3D3;
 }
 
-#dkzmaabeby .gt_col_heading {
+#rrubcagnkt .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -723,7 +811,7 @@
   overflow-x: hidden;
 }
 
-#dkzmaabeby .gt_column_spanner_outer {
+#rrubcagnkt .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -735,15 +823,15 @@
   padding-right: 4px;
 }
 
-#dkzmaabeby .gt_column_spanner_outer:first-child {
+#rrubcagnkt .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#dkzmaabeby .gt_column_spanner_outer:last-child {
+#rrubcagnkt .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#dkzmaabeby .gt_column_spanner {
+#rrubcagnkt .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -755,8 +843,11 @@
   width: 100%;
 }
 
-#dkzmaabeby .gt_group_heading {
-  padding: 8px;
+#rrubcagnkt .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -777,7 +868,7 @@
   vertical-align: middle;
 }
 
-#dkzmaabeby .gt_empty_group_heading {
+#rrubcagnkt .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -792,15 +883,15 @@
   vertical-align: middle;
 }
 
-#dkzmaabeby .gt_from_md > :first-child {
+#rrubcagnkt .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#dkzmaabeby .gt_from_md > :last-child {
+#rrubcagnkt .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#dkzmaabeby .gt_row {
+#rrubcagnkt .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -819,7 +910,7 @@
   overflow-x: hidden;
 }
 
-#dkzmaabeby .gt_stub {
+#rrubcagnkt .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -828,10 +919,29 @@
   border-right-style: solid;
   border-right-width: 2px;
   border-right-color: #D3D3D3;
-  padding-left: 12px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
-#dkzmaabeby .gt_summary_row {
+#rrubcagnkt .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#rrubcagnkt .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#rrubcagnkt .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -841,17 +951,26 @@
   padding-right: 5px;
 }
 
-#dkzmaabeby .gt_first_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
+#rrubcagnkt .gt_first_summary_row {
   border-top-style: solid;
-  border-top-width: 2px;
   border-top-color: #D3D3D3;
 }
 
-#dkzmaabeby .gt_grand_summary_row {
+#rrubcagnkt .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#rrubcagnkt .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#rrubcagnkt .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -861,7 +980,7 @@
   padding-right: 5px;
 }
 
-#dkzmaabeby .gt_first_grand_summary_row {
+#rrubcagnkt .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -871,11 +990,11 @@
   border-top-color: #D3D3D3;
 }
 
-#dkzmaabeby .gt_striped {
+#rrubcagnkt .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#dkzmaabeby .gt_table_body {
+#rrubcagnkt .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -884,7 +1003,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#dkzmaabeby .gt_footnotes {
+#rrubcagnkt .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -898,13 +1017,16 @@
   border-right-color: #D3D3D3;
 }
 
-#dkzmaabeby .gt_footnote {
+#rrubcagnkt .gt_footnote {
   margin: 0px;
   font-size: 90%;
-  padding: 4px;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
-#dkzmaabeby .gt_sourcenotes {
+#rrubcagnkt .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -918,44 +1040,80 @@
   border-right-color: #D3D3D3;
 }
 
-#dkzmaabeby .gt_sourcenote {
+#rrubcagnkt .gt_sourcenote {
   font-size: 90%;
-  padding: 4px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
-#dkzmaabeby .gt_left {
+#rrubcagnkt .gt_left {
   text-align: left;
 }
 
-#dkzmaabeby .gt_center {
+#rrubcagnkt .gt_center {
   text-align: center;
 }
 
-#dkzmaabeby .gt_right {
+#rrubcagnkt .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#dkzmaabeby .gt_font_normal {
+#rrubcagnkt .gt_font_normal {
   font-weight: normal;
 }
 
-#dkzmaabeby .gt_font_bold {
+#rrubcagnkt .gt_font_bold {
   font-weight: bold;
 }
 
-#dkzmaabeby .gt_font_italic {
+#rrubcagnkt .gt_font_italic {
   font-style: italic;
 }
 
-#dkzmaabeby .gt_super {
+#rrubcagnkt .gt_super {
   font-size: 65%;
 }
 
-#dkzmaabeby .gt_footnote_marks {
+#rrubcagnkt .gt_two_val_uncert {
+  display: inline-block;
+  line-height: 1em;
+  text-align: right;
+  font-size: 60%;
+  vertical-align: -0.25em;
+  margin-left: 0.1em;
+}
+
+#rrubcagnkt .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
-  font-size: 65%;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+#rrubcagnkt .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#rrubcagnkt .gt_slash_mark {
+  font-size: 0.7em;
+  line-height: 0.7em;
+  vertical-align: 0.15em;
+}
+
+#rrubcagnkt .gt_fraction_numerator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: 0.45em;
+}
+
+#rrubcagnkt .gt_fraction_denominator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: -0.05em;
 }
 </style>
 <table class="table gt_table">
@@ -1042,6 +1200,14 @@
 <td class="gt_row gt_center">7905.811</td>
 <td class="gt_row gt_center">7.441</td>
 </tr>
+<tr>
+<td class="gt_row gt_left">RMSE</td>
+<td class="gt_row gt_center">5753.14</td>
+<td class="gt_row gt_center">5727.27</td>
+<td class="gt_row gt_center">7456.23</td>
+<td class="gt_row gt_center">7233.22</td>
+<td class="gt_row gt_center">2793.43</td>
+</tr>
 </tbody>
 <tfoot class="gt_sourcenotes"><tr>
 <td class="gt_sourcenote" colspan="6">+ p &lt; 0.1, * p &lt; 0.05, ** p &lt; 0.01, *** p &lt; 0.001</td>
@@ -1049,10 +1215,10 @@
 </table>
 </div>
 </div>
-<div id="kableextra" class="section level1">
-<h1 class="hasAnchor">
-<a href="#kableextra" class="anchor"></a><code>kableExtra</code>
-</h1>
+<div class="section level2">
+<h2 id="kableextra">
+<code>kableExtra</code><a class="anchor" aria-label="anchor" href="#kableextra"></a>
+</h2>
 <p>We will now illustrate how to customize tables using functions from the <code>kableExtra</code> package:</p>
 <ul>
 <li>
@@ -1064,10 +1230,10 @@
 </ul>
 <p>We use the same code as above, but specify <code>output='kableExtra'</code> in the <code><a href="../reference/modelsummary.html">modelsummary()</a></code> call:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://haozhu233.github.io/kableExtra/">kableExtra</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://haozhu233.github.io/kableExtra/" class="external-link">kableExtra</a></span><span class="op">)</span>
 
 <span class="co"># build table with `modelsummary` </span>
-<span class="va">cm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span> <span class="st">'(Intercept)'</span> <span class="op">=</span> <span class="st">'Constant'</span>, <span class="st">'Literacy'</span> <span class="op">=</span> <span class="st">'Literacy (%)'</span>, <span class="st">'Clergy'</span> <span class="op">=</span> <span class="st">'Priests/capita'</span><span class="op">)</span>
+<span class="va">cm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span> <span class="st">'(Intercept)'</span> <span class="op">=</span> <span class="st">'Constant'</span>, <span class="st">'Literacy'</span> <span class="op">=</span> <span class="st">'Literacy (%)'</span>, <span class="st">'Clergy'</span> <span class="op">=</span> <span class="st">'Priests/capita'</span><span class="op">)</span>
 <span class="va">cap</span> <span class="op">&lt;-</span> <span class="st">'A modelsummary table customized with kableExtra'</span>
 
 <span class="va">tab</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modelsummary.html">modelsummary</a></span><span class="op">(</span><span class="va">models</span>, output <span class="op">=</span> <span class="st">'kableExtra'</span>,
@@ -1075,15 +1241,15 @@
                 title <span class="op">=</span> <span class="va">cap</span>, gof_omit <span class="op">=</span> <span class="st">'IC|Log|Adj'</span><span class="op">)</span> 
 
 <span class="co"># customize table with `kableExtra`</span>
-<span class="va">tab</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+<span class="va">tab</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
     
     <span class="co"># column labels</span>
-    <span class="fu"><a href="https://rdrr.io/pkg/kableExtra/man/add_header_above.html">add_header_above</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">" "</span> <span class="op">=</span> <span class="fl">1</span>, <span class="st">"Donations"</span> <span class="op">=</span> <span class="fl">2</span>, <span class="st">"Crimes (person)"</span> <span class="op">=</span> <span class="fl">2</span>, <span class="st">"Crimes (property)"</span> <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+    <span class="fu"><a href="https://rdrr.io/pkg/kableExtra/man/add_header_above.html" class="external-link">add_header_above</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">" "</span> <span class="op">=</span> <span class="fl">1</span>, <span class="st">"Donations"</span> <span class="op">=</span> <span class="fl">2</span>, <span class="st">"Crimes (person)"</span> <span class="op">=</span> <span class="fl">2</span>, <span class="st">"Crimes (property)"</span> <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
    
     <span class="co"># text and background color</span>
-    <span class="fu"><a href="https://rdrr.io/pkg/kableExtra/man/row_spec.html">row_spec</a></span><span class="op">(</span><span class="fl">3</span>, color <span class="op">=</span> <span class="st">'red'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-    <span class="fu"><a href="https://rdrr.io/pkg/kableExtra/man/row_spec.html">row_spec</a></span><span class="op">(</span><span class="fl">5</span>, background <span class="op">=</span> <span class="st">'lightblue'</span><span class="op">)</span></code></pre></div>
-<table class="table table">
+    <span class="fu"><a href="https://rdrr.io/pkg/kableExtra/man/row_spec.html" class="external-link">row_spec</a></span><span class="op">(</span><span class="fl">3</span>, color <span class="op">=</span> <span class="st">'red'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+    <span class="fu"><a href="https://rdrr.io/pkg/kableExtra/man/row_spec.html" class="external-link">row_spec</a></span><span class="op">(</span><span class="fl">5</span>, background <span class="op">=</span> <span class="st">'lightblue'</span><span class="op">)</span></code></pre></div>
+<table style="NAborder-bottom: 0; width: auto !important; margin-left: auto; margin-right: auto;" class="table table">
 <caption>
 A modelsummary table customized with kableExtra
 </caption>
@@ -1299,6 +1465,26 @@ F
 7.441
 </td>
 </tr>
+<tr>
+<td style="text-align:left;">
+RMSE
+</td>
+<td style="text-align:center;">
+5753.14
+</td>
+<td style="text-align:center;">
+5727.27
+</td>
+<td style="text-align:center;">
+7456.23
+</td>
+<td style="text-align:center;">
+7233.22
+</td>
+<td style="text-align:center;">
+2793.43
+</td>
+</tr>
 </tbody>
 <tfoot><tr>
 <td style="padding: 0; " colspan="100%">
@@ -1309,10 +1495,10 @@ F
 <p>These <code>kableExtra</code> functions can be used to produce LaTeX / PDF tables such as this one:</p>
 <p><img src="https://user-images.githubusercontent.com/987057/82732382-e068f580-9cda-11ea-8924-331550f8f1e8.png" width="40%"></p>
 </div>
-<div id="flextable" class="section level1">
-<h1 class="hasAnchor">
-<a href="#flextable" class="anchor"></a><code>flextable</code>
-</h1>
+<div class="section level2">
+<h2 id="flextable">
+<code>flextable</code><a class="anchor" aria-label="anchor" href="#flextable"></a>
+</h2>
 <p>We will now illustrate how to customize tables using functions from the <code>flextable</code> package:</p>
 <ul>
 <li>
@@ -1324,7 +1510,7 @@ F
 </ul>
 <p>We use the same code as above, but specify <code>output='flextable'</code> in the <code><a href="../reference/modelsummary.html">modelsummary()</a></code> call:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ardata-fr.github.io/flextable-book/">flextable</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ardata-fr.github.io/flextable-book/" class="external-link">flextable</a></span><span class="op">)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Attaching package: 'flextable'</span>
 <span class="co">#&gt; The following objects are masked from 'package:kableExtra':</span>
@@ -1332,7 +1518,7 @@ F
 <span class="co">#&gt;     as_image, footnote</span>
 
 <span class="co"># build table with `modelsummary` </span>
-<span class="va">cm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span> <span class="st">'(Intercept)'</span> <span class="op">=</span> <span class="st">'Constant'</span>, <span class="st">'Literacy'</span> <span class="op">=</span> <span class="st">'Literacy (%)'</span>, <span class="st">'Clergy'</span> <span class="op">=</span> <span class="st">'Priests/capita'</span><span class="op">)</span>
+<span class="va">cm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span> <span class="st">'(Intercept)'</span> <span class="op">=</span> <span class="st">'Constant'</span>, <span class="st">'Literacy'</span> <span class="op">=</span> <span class="st">'Literacy (%)'</span>, <span class="st">'Clergy'</span> <span class="op">=</span> <span class="st">'Priests/capita'</span><span class="op">)</span>
 <span class="va">cap</span> <span class="op">&lt;-</span> <span class="st">'A modelsummary table customized with flextable'</span>
 
 <span class="va">tab</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modelsummary.html">modelsummary</a></span><span class="op">(</span><span class="va">models</span>, output <span class="op">=</span> <span class="st">'flextable'</span>,
@@ -1340,15 +1526,15 @@ F
                 title <span class="op">=</span> <span class="va">cap</span>, gof_omit <span class="op">=</span> <span class="st">'IC|Log|Adj'</span><span class="op">)</span> 
 
 <span class="co"># customize table with `flextable`</span>
-<span class="va">tab</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+<span class="va">tab</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
    
     <span class="co"># text and background color</span>
-    <span class="fu"><a href="https://davidgohel.github.io/flextable/reference/color.html">color</a></span><span class="op">(</span><span class="fl">3</span>, color <span class="op">=</span> <span class="st">'red'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-    <span class="fu"><a href="https://davidgohel.github.io/flextable/reference/bg.html">bg</a></span><span class="op">(</span><span class="fl">5</span>, bg <span class="op">=</span> <span class="st">'lightblue'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+    <span class="fu"><a href="https://davidgohel.github.io/flextable/reference/color.html" class="external-link">color</a></span><span class="op">(</span><span class="fl">3</span>, color <span class="op">=</span> <span class="st">'red'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+    <span class="fu"><a href="https://davidgohel.github.io/flextable/reference/bg.html" class="external-link">bg</a></span><span class="op">(</span><span class="fl">5</span>, bg <span class="op">=</span> <span class="st">'lightblue'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
   
     <span class="co"># column widths</span>
-    <span class="fu"><a href="https://davidgohel.github.io/flextable/reference/autofit.html">autofit</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<template id="5664e9e7-870c-419e-9783-e62d8f89ef6d"><style>
+    <span class="fu"><a href="https://davidgohel.github.io/flextable/reference/autofit.html" class="external-link">autofit</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<template id="4e0ad0b1-0d75-4d6c-a49d-ffc8536a0eed"><style>
 .tabwid table{
   border-spacing:0px !important;
   border-collapse:collapse;
@@ -1384,99 +1570,107 @@ background-color: transparent;
 }
 </style>
 <div class="tabwid">
-<style>.cl-f3c71a4a{}.cl-f3be3fd8{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-f3be3fe2{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(255, 0, 0, 1.00);background-color:transparent;}.cl-f3be5874{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-f3be9afa{width:96.5pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f3be9b04{width:73pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f3be9b05{width:89.5pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f3be9b0e{width:94.9pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f3be9b0f{width:73pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f3be9b10{width:94.9pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f3be9b18{width:96.5pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f3be9b19{width:89.5pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f3be9b1a{width:73pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f3be9b22{width:94.9pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f3be9b23{width:89.5pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f3be9b24{width:96.5pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f3be9b25{width:73pt;background-color:rgba(173, 216, 230, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f3be9b2c{width:96.5pt;background-color:rgba(173, 216, 230, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f3be9b2d{width:89.5pt;background-color:rgba(173, 216, 230, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f3be9b2e{width:94.9pt;background-color:rgba(173, 216, 230, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f3be9b2f{width:96.5pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f3be9b30{width:94.9pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f3be9b36{width:73pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f3be9b40{width:89.5pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f3be9b41{width:73pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f3be9b42{width:96.5pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f3be9b43{width:89.5pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f3be9b4a{width:94.9pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f3be9b4b{width:73pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f3be9b4c{width:96.5pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f3be9b4d{width:89.5pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f3be9b54{width:94.9pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f3be9b55{width:94.9pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f3be9b56{width:96.5pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f3be9b57{width:73pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f3be9b5e{width:89.5pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
-<table class="table cl-f3c71a4a">
+<style>.cl-6d4a4ba8{}.cl-6d417c9e{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-6d417cb2{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(255, 0, 0, 1.00);background-color:transparent;}.cl-6d419760{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-6d41e88c{width:96.5pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d41e896{width:73pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d41e8a0{width:89.5pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d41e8a1{width:94.9pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d41e8aa{width:89.5pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d41e8ab{width:94.9pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d41e8ac{width:73pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d41e8b4{width:96.5pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d41e8b5{width:94.9pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d41e8b6{width:73pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d41e8be{width:96.5pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d41e8c8{width:89.5pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d41e8c9{width:73pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d41e8d2{width:96.5pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d41e8d3{width:89.5pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d41e8dc{width:94.9pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d41e8dd{width:96.5pt;background-color:rgba(173, 216, 230, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d41e8e6{width:89.5pt;background-color:rgba(173, 216, 230, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d41e8e7{width:94.9pt;background-color:rgba(173, 216, 230, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d41e8e8{width:73pt;background-color:rgba(173, 216, 230, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d41e8e9{width:94.9pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d41e8f0{width:73pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d41e8f1{width:96.5pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d41e8fa{width:89.5pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d41e8fb{width:89.5pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d41e8fc{width:94.9pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d41e904{width:96.5pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d41e905{width:73pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d41e906{width:94.9pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d41e90e{width:89.5pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d41e90f{width:73pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d41e918{width:96.5pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
+<table class="table cl-6d4a4ba8">
 <caption class="Table Caption">
 <p>A modelsummary table customized with flextable</p>
 </caption>
 <thead><tr style="overflow-wrap:break-word;">
-<td class="cl-f3be9b55"><p class="cl-f3be5874"><span class="cl-f3be3fd8"> </span></p></td>
-<td class="cl-f3be9b5e"><p class="cl-f3be5874"><span class="cl-f3be3fd8">OLS 1</span></p></td>
-<td class="cl-f3be9b57"><p class="cl-f3be5874"><span class="cl-f3be3fd8">Poisson 1</span></p></td>
-<td class="cl-f3be9b56"><p class="cl-f3be5874"><span class="cl-f3be3fd8">OLS 2</span></p></td>
-<td class="cl-f3be9b57"><p class="cl-f3be5874"><span class="cl-f3be3fd8">Poisson 2</span></p></td>
-<td class="cl-f3be9b56"><p class="cl-f3be5874"><span class="cl-f3be3fd8">OLS 3</span></p></td>
+<td class="cl-6d41e906"><p class="cl-6d419760"><span class="cl-6d417c9e"> </span></p></td>
+<td class="cl-6d41e90e"><p class="cl-6d419760"><span class="cl-6d417c9e">OLS 1</span></p></td>
+<td class="cl-6d41e90f"><p class="cl-6d419760"><span class="cl-6d417c9e">Poisson 1</span></p></td>
+<td class="cl-6d41e918"><p class="cl-6d419760"><span class="cl-6d417c9e">OLS 2</span></p></td>
+<td class="cl-6d41e90f"><p class="cl-6d419760"><span class="cl-6d417c9e">Poisson 2</span></p></td>
+<td class="cl-6d41e918"><p class="cl-6d419760"><span class="cl-6d417c9e">OLS 3</span></p></td>
 </tr></thead>
 <tbody>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-f3be9b0e"><p class="cl-f3be5874"><span class="cl-f3be3fd8">Constant</span></p></td>
-<td class="cl-f3be9b05"><p class="cl-f3be5874"><span class="cl-f3be3fd8">8759.068***</span></p></td>
-<td class="cl-f3be9b04"><p class="cl-f3be5874"><span class="cl-f3be3fd8">8.986***</span></p></td>
-<td class="cl-f3be9afa"><p class="cl-f3be5874"><span class="cl-f3be3fd8">20357.309***</span></p></td>
-<td class="cl-f3be9b04"><p class="cl-f3be5874"><span class="cl-f3be3fd8">9.708***</span></p></td>
-<td class="cl-f3be9afa"><p class="cl-f3be5874"><span class="cl-f3be3fd8">11243.544***</span></p></td>
+<td class="cl-6d41e8a1"><p class="cl-6d419760"><span class="cl-6d417c9e">Constant</span></p></td>
+<td class="cl-6d41e8a0"><p class="cl-6d419760"><span class="cl-6d417c9e">8759.068***</span></p></td>
+<td class="cl-6d41e896"><p class="cl-6d419760"><span class="cl-6d417c9e">8.986***</span></p></td>
+<td class="cl-6d41e88c"><p class="cl-6d419760"><span class="cl-6d417c9e">20357.309***</span></p></td>
+<td class="cl-6d41e896"><p class="cl-6d419760"><span class="cl-6d417c9e">9.708***</span></p></td>
+<td class="cl-6d41e88c"><p class="cl-6d419760"><span class="cl-6d417c9e">11243.544***</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-f3be9b10"><p class="cl-f3be5874"><span class="cl-f3be3fd8"></span></p></td>
-<td class="cl-f3be9b19"><p class="cl-f3be5874"><span class="cl-f3be3fd8">(1559.363)</span></p></td>
-<td class="cl-f3be9b0f"><p class="cl-f3be5874"><span class="cl-f3be3fd8">(0.004)</span></p></td>
-<td class="cl-f3be9b18"><p class="cl-f3be5874"><span class="cl-f3be3fd8">(2020.980)</span></p></td>
-<td class="cl-f3be9b0f"><p class="cl-f3be5874"><span class="cl-f3be3fd8">(0.003)</span></p></td>
-<td class="cl-f3be9b18"><p class="cl-f3be5874"><span class="cl-f3be3fd8">(1011.240)</span></p></td>
+<td class="cl-6d41e8b5"><p class="cl-6d419760"><span class="cl-6d417c9e"></span></p></td>
+<td class="cl-6d41e8c8"><p class="cl-6d419760"><span class="cl-6d417c9e">(1559.363)</span></p></td>
+<td class="cl-6d41e8b6"><p class="cl-6d419760"><span class="cl-6d417c9e">(0.004)</span></p></td>
+<td class="cl-6d41e8be"><p class="cl-6d419760"><span class="cl-6d417c9e">(2020.980)</span></p></td>
+<td class="cl-6d41e8b6"><p class="cl-6d419760"><span class="cl-6d417c9e">(0.003)</span></p></td>
+<td class="cl-6d41e8be"><p class="cl-6d419760"><span class="cl-6d417c9e">(1011.240)</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-f3be9b22"><p class="cl-f3be5874"><span class="cl-f3be3fe2">Literacy (%)</span></p></td>
-<td class="cl-f3be9b23"><p class="cl-f3be5874"><span class="cl-f3be3fe2">-42.886</span></p></td>
-<td class="cl-f3be9b1a"><p class="cl-f3be5874"><span class="cl-f3be3fe2">-0.006***</span></p></td>
-<td class="cl-f3be9b24"><p class="cl-f3be5874"><span class="cl-f3be3fe2">-15.358</span></p></td>
-<td class="cl-f3be9b1a"><p class="cl-f3be5874"><span class="cl-f3be3fe2">0.000***</span></p></td>
-<td class="cl-f3be9b24"><p class="cl-f3be5874"><span class="cl-f3be3fe2">-68.507***</span></p></td>
+<td class="cl-6d41e8dc"><p class="cl-6d419760"><span class="cl-6d417cb2">Literacy (%)</span></p></td>
+<td class="cl-6d41e8d3"><p class="cl-6d419760"><span class="cl-6d417cb2">-42.886</span></p></td>
+<td class="cl-6d41e8c9"><p class="cl-6d419760"><span class="cl-6d417cb2">-0.006***</span></p></td>
+<td class="cl-6d41e8d2"><p class="cl-6d419760"><span class="cl-6d417cb2">-15.358</span></p></td>
+<td class="cl-6d41e8c9"><p class="cl-6d419760"><span class="cl-6d417cb2">0.000***</span></p></td>
+<td class="cl-6d41e8d2"><p class="cl-6d419760"><span class="cl-6d417cb2">-68.507***</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-f3be9b10"><p class="cl-f3be5874"><span class="cl-f3be3fd8"></span></p></td>
-<td class="cl-f3be9b19"><p class="cl-f3be5874"><span class="cl-f3be3fd8">(36.362)</span></p></td>
-<td class="cl-f3be9b0f"><p class="cl-f3be5874"><span class="cl-f3be3fd8">(0.000)</span></p></td>
-<td class="cl-f3be9b18"><p class="cl-f3be5874"><span class="cl-f3be3fd8">(47.127)</span></p></td>
-<td class="cl-f3be9b0f"><p class="cl-f3be5874"><span class="cl-f3be3fd8">(0.000)</span></p></td>
-<td class="cl-f3be9b18"><p class="cl-f3be5874"><span class="cl-f3be3fd8">(18.029)</span></p></td>
+<td class="cl-6d41e8b5"><p class="cl-6d419760"><span class="cl-6d417c9e"></span></p></td>
+<td class="cl-6d41e8c8"><p class="cl-6d419760"><span class="cl-6d417c9e">(36.362)</span></p></td>
+<td class="cl-6d41e8b6"><p class="cl-6d419760"><span class="cl-6d417c9e">(0.000)</span></p></td>
+<td class="cl-6d41e8be"><p class="cl-6d419760"><span class="cl-6d417c9e">(47.127)</span></p></td>
+<td class="cl-6d41e8b6"><p class="cl-6d419760"><span class="cl-6d417c9e">(0.000)</span></p></td>
+<td class="cl-6d41e8be"><p class="cl-6d419760"><span class="cl-6d417c9e">(18.029)</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-f3be9b2e"><p class="cl-f3be5874"><span class="cl-f3be3fd8">Priests/capita</span></p></td>
-<td class="cl-f3be9b2d"><p class="cl-f3be5874"><span class="cl-f3be3fd8"></span></p></td>
-<td class="cl-f3be9b25"><p class="cl-f3be5874"><span class="cl-f3be3fd8">0.002***</span></p></td>
-<td class="cl-f3be9b2c"><p class="cl-f3be5874"><span class="cl-f3be3fd8"></span></p></td>
-<td class="cl-f3be9b25"><p class="cl-f3be5874"><span class="cl-f3be3fd8">0.004***</span></p></td>
-<td class="cl-f3be9b2c"><p class="cl-f3be5874"><span class="cl-f3be3fd8">-16.376</span></p></td>
+<td class="cl-6d41e8e7"><p class="cl-6d419760"><span class="cl-6d417c9e">Priests/capita</span></p></td>
+<td class="cl-6d41e8e6"><p class="cl-6d419760"><span class="cl-6d417c9e"></span></p></td>
+<td class="cl-6d41e8e8"><p class="cl-6d419760"><span class="cl-6d417c9e">0.002***</span></p></td>
+<td class="cl-6d41e8dd"><p class="cl-6d419760"><span class="cl-6d417c9e"></span></p></td>
+<td class="cl-6d41e8e8"><p class="cl-6d419760"><span class="cl-6d417c9e">0.004***</span></p></td>
+<td class="cl-6d41e8dd"><p class="cl-6d419760"><span class="cl-6d417c9e">-16.376</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-f3be9b10"><p class="cl-f3be5874"><span class="cl-f3be3fd8"></span></p></td>
-<td class="cl-f3be9b19"><p class="cl-f3be5874"><span class="cl-f3be3fd8"></span></p></td>
-<td class="cl-f3be9b0f"><p class="cl-f3be5874"><span class="cl-f3be3fd8">(0.000)</span></p></td>
-<td class="cl-f3be9b18"><p class="cl-f3be5874"><span class="cl-f3be3fd8"></span></p></td>
-<td class="cl-f3be9b0f"><p class="cl-f3be5874"><span class="cl-f3be3fd8">(0.000)</span></p></td>
-<td class="cl-f3be9b18"><p class="cl-f3be5874"><span class="cl-f3be3fd8">(12.522)</span></p></td>
+<td class="cl-6d41e8b5"><p class="cl-6d419760"><span class="cl-6d417c9e"></span></p></td>
+<td class="cl-6d41e8c8"><p class="cl-6d419760"><span class="cl-6d417c9e"></span></p></td>
+<td class="cl-6d41e8b6"><p class="cl-6d419760"><span class="cl-6d417c9e">(0.000)</span></p></td>
+<td class="cl-6d41e8be"><p class="cl-6d419760"><span class="cl-6d417c9e"></span></p></td>
+<td class="cl-6d41e8b6"><p class="cl-6d419760"><span class="cl-6d417c9e">(0.000)</span></p></td>
+<td class="cl-6d41e8be"><p class="cl-6d419760"><span class="cl-6d417c9e">(12.522)</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-f3be9b30"><p class="cl-f3be5874"><span class="cl-f3be3fd8">Num.Obs.</span></p></td>
-<td class="cl-f3be9b40"><p class="cl-f3be5874"><span class="cl-f3be3fd8">86</span></p></td>
-<td class="cl-f3be9b36"><p class="cl-f3be5874"><span class="cl-f3be3fd8">86</span></p></td>
-<td class="cl-f3be9b2f"><p class="cl-f3be5874"><span class="cl-f3be3fd8">86</span></p></td>
-<td class="cl-f3be9b36"><p class="cl-f3be5874"><span class="cl-f3be3fd8">86</span></p></td>
-<td class="cl-f3be9b2f"><p class="cl-f3be5874"><span class="cl-f3be3fd8">86</span></p></td>
+<td class="cl-6d41e8e9"><p class="cl-6d419760"><span class="cl-6d417c9e">Num.Obs.</span></p></td>
+<td class="cl-6d41e8fa"><p class="cl-6d419760"><span class="cl-6d417c9e">86</span></p></td>
+<td class="cl-6d41e8f0"><p class="cl-6d419760"><span class="cl-6d417c9e">86</span></p></td>
+<td class="cl-6d41e8f1"><p class="cl-6d419760"><span class="cl-6d417c9e">86</span></p></td>
+<td class="cl-6d41e8f0"><p class="cl-6d419760"><span class="cl-6d417c9e">86</span></p></td>
+<td class="cl-6d41e8f1"><p class="cl-6d419760"><span class="cl-6d417c9e">86</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-f3be9b0e"><p class="cl-f3be5874"><span class="cl-f3be3fd8">R2</span></p></td>
-<td class="cl-f3be9b05"><p class="cl-f3be5874"><span class="cl-f3be3fd8">0.016</span></p></td>
-<td class="cl-f3be9b04"><p class="cl-f3be5874"><span class="cl-f3be3fd8"></span></p></td>
-<td class="cl-f3be9afa"><p class="cl-f3be5874"><span class="cl-f3be3fd8">0.001</span></p></td>
-<td class="cl-f3be9b04"><p class="cl-f3be5874"><span class="cl-f3be3fd8"></span></p></td>
-<td class="cl-f3be9afa"><p class="cl-f3be5874"><span class="cl-f3be3fd8">0.152</span></p></td>
+<td class="cl-6d41e8a1"><p class="cl-6d419760"><span class="cl-6d417c9e">R2</span></p></td>
+<td class="cl-6d41e8a0"><p class="cl-6d419760"><span class="cl-6d417c9e">0.016</span></p></td>
+<td class="cl-6d41e896"><p class="cl-6d419760"><span class="cl-6d417c9e"></span></p></td>
+<td class="cl-6d41e88c"><p class="cl-6d419760"><span class="cl-6d417c9e">0.001</span></p></td>
+<td class="cl-6d41e896"><p class="cl-6d419760"><span class="cl-6d417c9e"></span></p></td>
+<td class="cl-6d41e88c"><p class="cl-6d419760"><span class="cl-6d417c9e">0.152</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-f3be9b4a"><p class="cl-f3be5874"><span class="cl-f3be3fd8">F</span></p></td>
-<td class="cl-f3be9b43"><p class="cl-f3be5874"><span class="cl-f3be3fd8">1.391</span></p></td>
-<td class="cl-f3be9b41"><p class="cl-f3be5874"><span class="cl-f3be3fd8">4170.610</span></p></td>
-<td class="cl-f3be9b42"><p class="cl-f3be5874"><span class="cl-f3be3fd8">0.106</span></p></td>
-<td class="cl-f3be9b41"><p class="cl-f3be5874"><span class="cl-f3be3fd8">7905.811</span></p></td>
-<td class="cl-f3be9b42"><p class="cl-f3be5874"><span class="cl-f3be3fd8">7.441</span></p></td>
+<td class="cl-6d41e8a1"><p class="cl-6d419760"><span class="cl-6d417c9e">F</span></p></td>
+<td class="cl-6d41e8a0"><p class="cl-6d419760"><span class="cl-6d417c9e">1.391</span></p></td>
+<td class="cl-6d41e896"><p class="cl-6d419760"><span class="cl-6d417c9e">4170.610</span></p></td>
+<td class="cl-6d41e88c"><p class="cl-6d419760"><span class="cl-6d417c9e">0.106</span></p></td>
+<td class="cl-6d41e896"><p class="cl-6d419760"><span class="cl-6d417c9e">7905.811</span></p></td>
+<td class="cl-6d41e88c"><p class="cl-6d419760"><span class="cl-6d417c9e">7.441</span></p></td>
+</tr>
+<tr style="overflow-wrap:break-word;">
+<td class="cl-6d41e8ab"><p class="cl-6d419760"><span class="cl-6d417c9e">RMSE</span></p></td>
+<td class="cl-6d41e8aa"><p class="cl-6d419760"><span class="cl-6d417c9e">5753.14</span></p></td>
+<td class="cl-6d41e8ac"><p class="cl-6d419760"><span class="cl-6d417c9e">5727.27</span></p></td>
+<td class="cl-6d41e8b4"><p class="cl-6d419760"><span class="cl-6d417c9e">7456.23</span></p></td>
+<td class="cl-6d41e8ac"><p class="cl-6d419760"><span class="cl-6d417c9e">7233.22</span></p></td>
+<td class="cl-6d41e8b4"><p class="cl-6d419760"><span class="cl-6d417c9e">2793.43</span></p></td>
 </tr>
 </tbody>
-<tfoot><tr style="overflow-wrap:break-word;"><td colspan="6" class="cl-f3be9b54"><p class="cl-f3be5874"><span class="cl-f3be3fd8">+ p &lt; 0.1, * p &lt; 0.05, ** p &lt; 0.01, *** p &lt; 0.001</span></p></td></tr></tfoot>
+<tfoot><tr style="overflow-wrap:break-word;"><td colspan="6" class="cl-6d41e8fc"><p class="cl-6d419760"><span class="cl-6d417c9e">+ p &lt; 0.1, * p &lt; 0.05, ** p &lt; 0.01, *** p &lt; 0.001</span></p></td></tr></tfoot>
 </table>
-</div></template><div class="flextable-shadow-host" id="56bc516d-eb68-47f3-8cac-4e763a6c74de"></div>
+</div></template><div class="flextable-shadow-host" id="76db3336-9f94-4c02-9876-b3bfa2a63228"></div>
 <script>
-var dest = document.getElementById("56bc516d-eb68-47f3-8cac-4e763a6c74de");
-var template = document.getElementById("5664e9e7-870c-419e-9783-e62d8f89ef6d");
+var dest = document.getElementById("76db3336-9f94-4c02-9876-b3bfa2a63228");
+var template = document.getElementById("4e0ad0b1-0d75-4d6c-a49d-ffc8536a0eed");
 var caption = template.content.querySelector("caption");
 if(caption) {
   caption.style.cssText = "display:block;text-align:center;";
@@ -1489,10 +1683,10 @@ var templateContent = template.content;
 fantome.appendChild(templateContent);
 </script>
 </div>
-<div id="huxtable" class="section level1">
-<h1 class="hasAnchor">
-<a href="#huxtable" class="anchor"></a><code>huxtable</code>
-</h1>
+<div class="section level2">
+<h2 id="huxtable">
+<code>huxtable</code><a class="anchor" aria-label="anchor" href="#huxtable"></a>
+</h2>
 <p>We will now illustrate how to customize tables using functions from the <code>huxtable</code> package:</p>
 <ul>
 <li>
@@ -1500,10 +1694,10 @@ fantome.appendChild(templateContent);
 </ul>
 <p>We use the same code as above, but specify <code>output='huxtable'</code> in the <code><a href="../reference/modelsummary.html">modelsummary()</a></code> call:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://hughjonesd.github.io/huxtable/">huxtable</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://hughjonesd.github.io/huxtable/" class="external-link">huxtable</a></span><span class="op">)</span>
 
 <span class="co"># build table with `modelsummary` </span>
-<span class="va">cm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span> <span class="st">'(Intercept)'</span> <span class="op">=</span> <span class="st">'Constant'</span>, <span class="st">'Literacy'</span> <span class="op">=</span> <span class="st">'Literacy (%)'</span>, <span class="st">'Clergy'</span> <span class="op">=</span> <span class="st">'Priests/capita'</span><span class="op">)</span>
+<span class="va">cm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span> <span class="st">'(Intercept)'</span> <span class="op">=</span> <span class="st">'Constant'</span>, <span class="st">'Literacy'</span> <span class="op">=</span> <span class="st">'Literacy (%)'</span>, <span class="st">'Clergy'</span> <span class="op">=</span> <span class="st">'Priests/capita'</span><span class="op">)</span>
 <span class="va">cap</span> <span class="op">&lt;-</span> <span class="st">'A modelsummary table customized with huxtable'</span>
 
 <span class="va">tab</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modelsummary.html">modelsummary</a></span><span class="op">(</span><span class="va">models</span>, output <span class="op">=</span> <span class="st">'huxtable'</span>,
@@ -1511,11 +1705,11 @@ fantome.appendChild(templateContent);
                 title <span class="op">=</span> <span class="va">cap</span>, gof_omit <span class="op">=</span> <span class="st">'IC|Log|Adj'</span><span class="op">)</span> 
 
 <span class="co"># customize table with `huxtable`</span>
-<span class="va">tab</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+<span class="va">tab</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
    
     <span class="co"># text color</span>
-    <span class="fu"><a href="https://hughjonesd.github.io/huxtable/reference/text_color.html">set_text_color</a></span><span class="op">(</span>row <span class="op">=</span> <span class="fl">4</span>, col <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span>, value <span class="op">=</span> <span class="st">'red'</span><span class="op">)</span></code></pre></div>
-<table class="table huxtable">
+    <span class="fu"><a href="https://hughjonesd.github.io/huxtable/reference/text_color.html" class="external-link">set_text_color</a></span><span class="op">(</span>row <span class="op">=</span> <span class="fl">4</span>, col <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">ncol</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span>, value <span class="op">=</span> <span class="st">'red'</span><span class="op">)</span></code></pre></div>
+<table class="table huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-7">
 <caption style="caption-side: top; text-align: center;">A modelsummary table customized with huxtable</caption>
 <col>
 <col>
@@ -1596,38 +1790,46 @@ fantome.appendChild(templateContent);
 <td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.152</td>
 </tr>
 <tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">F</td>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">1.391</td>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">4170.610</td>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.106</td>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">7905.811</td>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">7.441</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">F</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">1.391</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">4170.610</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.106</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">7905.811</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">7.441</td>
+</tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">RMSE</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">5753.14</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">5727.27</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">7456.23</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">7233.22</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">2793.43</td>
 </tr>
 <tr><td colspan="6" style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 1pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">+ p &lt; 0.1, * p &lt; 0.05, ** p &lt; 0.01, *** p &lt; 0.001</td></tr>
 </table>
 </div>
-<div id="themes" class="section level1">
-<h1 class="hasAnchor">
-<a href="#themes" class="anchor"></a>Themes</h1>
-<p>If you want to apply the same post-processing functions to your tables, you can use <code>modelsummary</code>’s theming functionality. To do so, we first create a function to post-process a table. This function must accept a table as its first argument, and include the ellipsis (<code>...</code>). Optionally, the theming function can also accept an <code>hrule</code> argument which is a vector of row positions where we insert horizontal rule, and an <code>output_format</code> which allows output format-specific customization. For inspiration, you may want to consult the default <code>modelsummary</code> themes in the <a href="https://github.com/vincentarelbundock/modelsummary"><code>themes.R</code> file of the Github repository.</a></p>
+<div class="section level2">
+<h2 id="themes">Themes<a class="anchor" aria-label="anchor" href="#themes"></a>
+</h2>
+<p>If you want to apply the same post-processing functions to your tables, you can use <code>modelsummary</code>’s theming functionality. To do so, we first create a function to post-process a table. This function must accept a table as its first argument, and include the ellipsis (<code>...</code>). Optionally, the theming function can also accept an <code>hrule</code> argument which is a vector of row positions where we insert horizontal rule, and an <code>output_format</code> which allows output format-specific customization. For inspiration, you may want to consult the default <code>modelsummary</code> themes in the <a href="https://github.com/vincentarelbundock/modelsummary" class="external-link"><code>themes.R</code> file of the Github repository.</a></p>
 <p>Once the theming function is created, we assign it to a global option called <code>modelsummary_theme_kableExtra</code>, <code>modelsummary_theme_gt</code>, <code>modelsummary_theme_flextable</code>, or <code>modelsummary_theme_huxtable</code>. For example, if you want to add row striping to all your <code>gt</code> tables:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://gt.rstudio.com/">gt</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://gt.rstudio.com/" class="external-link">gt</a></span><span class="op">)</span>
 
 <span class="co"># The ... ellipsis is required!</span>
 <span class="va">custom_theme</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span> <span class="op">{</span>
-    <span class="va">x</span> <span class="op"><a href="https://gt.rstudio.com/reference/pipe.html">%&gt;%</a></span> <span class="fu">gt</span><span class="fu">::</span><span class="fu"><a href="https://gt.rstudio.com/reference/opt_row_striping.html">opt_row_striping</a></span><span class="op">(</span>row_striping <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+    <span class="va">x</span> <span class="op"><a href="https://gt.rstudio.com/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu">gt</span><span class="fu">::</span><span class="fu"><a href="https://gt.rstudio.com/reference/opt_row_striping.html" class="external-link">opt_row_striping</a></span><span class="op">(</span>row_striping <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="op">}</span>
-<span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span><span class="st">"modelsummary_theme_gt"</span> <span class="op">=</span> <span class="va">custom_theme</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="st">"modelsummary_theme_gt"</span> <span class="op">=</span> <span class="va">custom_theme</span><span class="op">)</span>
 
-<span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">hp</span> <span class="op">+</span> <span class="va">drat</span>, <span class="va">mtcars</span><span class="op">)</span>
+<span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">hp</span> <span class="op">+</span> <span class="va">drat</span>, <span class="va">mtcars</span><span class="op">)</span>
 <span class="fu"><a href="../reference/modelsummary.html">modelsummary</a></span><span class="op">(</span><span class="va">mod</span>, output <span class="op">=</span> <span class="st">"gt"</span><span class="op">)</span></code></pre></div>
-<div id="szvlwiplft" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="kdnjurwddk" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#szvlwiplft .gt_table {
+#kdnjurwddk .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1652,7 +1854,7 @@ fantome.appendChild(templateContent);
   border-left-color: #D3D3D3;
 }
 
-#szvlwiplft .gt_heading {
+#kdnjurwddk .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1664,33 +1866,37 @@ fantome.appendChild(templateContent);
   border-right-color: #D3D3D3;
 }
 
-#szvlwiplft .gt_title {
+#kdnjurwddk .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
   padding-top: 4px;
   padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
   border-bottom-color: #FFFFFF;
   border-bottom-width: 0;
 }
 
-#szvlwiplft .gt_subtitle {
+#kdnjurwddk .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
   padding-top: 0;
   padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
   border-top-color: #FFFFFF;
   border-top-width: 0;
 }
 
-#szvlwiplft .gt_bottom_border {
+#kdnjurwddk .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#szvlwiplft .gt_col_headings {
+#kdnjurwddk .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1705,7 +1911,7 @@ fantome.appendChild(templateContent);
   border-right-color: #D3D3D3;
 }
 
-#szvlwiplft .gt_col_heading {
+#kdnjurwddk .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1725,7 +1931,7 @@ fantome.appendChild(templateContent);
   overflow-x: hidden;
 }
 
-#szvlwiplft .gt_column_spanner_outer {
+#kdnjurwddk .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1737,15 +1943,15 @@ fantome.appendChild(templateContent);
   padding-right: 4px;
 }
 
-#szvlwiplft .gt_column_spanner_outer:first-child {
+#kdnjurwddk .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#szvlwiplft .gt_column_spanner_outer:last-child {
+#kdnjurwddk .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#szvlwiplft .gt_column_spanner {
+#kdnjurwddk .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1757,8 +1963,11 @@ fantome.appendChild(templateContent);
   width: 100%;
 }
 
-#szvlwiplft .gt_group_heading {
-  padding: 8px;
+#kdnjurwddk .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1779,7 +1988,7 @@ fantome.appendChild(templateContent);
   vertical-align: middle;
 }
 
-#szvlwiplft .gt_empty_group_heading {
+#kdnjurwddk .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1794,15 +2003,15 @@ fantome.appendChild(templateContent);
   vertical-align: middle;
 }
 
-#szvlwiplft .gt_from_md > :first-child {
+#kdnjurwddk .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#szvlwiplft .gt_from_md > :last-child {
+#kdnjurwddk .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#szvlwiplft .gt_row {
+#kdnjurwddk .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1821,7 +2030,7 @@ fantome.appendChild(templateContent);
   overflow-x: hidden;
 }
 
-#szvlwiplft .gt_stub {
+#kdnjurwddk .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1830,10 +2039,29 @@ fantome.appendChild(templateContent);
   border-right-style: solid;
   border-right-width: 2px;
   border-right-color: #D3D3D3;
-  padding-left: 12px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
-#szvlwiplft .gt_summary_row {
+#kdnjurwddk .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#kdnjurwddk .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#kdnjurwddk .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1843,17 +2071,26 @@ fantome.appendChild(templateContent);
   padding-right: 5px;
 }
 
-#szvlwiplft .gt_first_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
+#kdnjurwddk .gt_first_summary_row {
   border-top-style: solid;
-  border-top-width: 2px;
   border-top-color: #D3D3D3;
 }
 
-#szvlwiplft .gt_grand_summary_row {
+#kdnjurwddk .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#kdnjurwddk .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#kdnjurwddk .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1863,7 +2100,7 @@ fantome.appendChild(templateContent);
   padding-right: 5px;
 }
 
-#szvlwiplft .gt_first_grand_summary_row {
+#kdnjurwddk .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1873,11 +2110,11 @@ fantome.appendChild(templateContent);
   border-top-color: #D3D3D3;
 }
 
-#szvlwiplft .gt_striped {
+#kdnjurwddk .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#szvlwiplft .gt_table_body {
+#kdnjurwddk .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1886,7 +2123,7 @@ fantome.appendChild(templateContent);
   border-bottom-color: #D3D3D3;
 }
 
-#szvlwiplft .gt_footnotes {
+#kdnjurwddk .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1900,13 +2137,16 @@ fantome.appendChild(templateContent);
   border-right-color: #D3D3D3;
 }
 
-#szvlwiplft .gt_footnote {
+#kdnjurwddk .gt_footnote {
   margin: 0px;
   font-size: 90%;
-  padding: 4px;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
-#szvlwiplft .gt_sourcenotes {
+#kdnjurwddk .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1920,44 +2160,80 @@ fantome.appendChild(templateContent);
   border-right-color: #D3D3D3;
 }
 
-#szvlwiplft .gt_sourcenote {
+#kdnjurwddk .gt_sourcenote {
   font-size: 90%;
-  padding: 4px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
-#szvlwiplft .gt_left {
+#kdnjurwddk .gt_left {
   text-align: left;
 }
 
-#szvlwiplft .gt_center {
+#kdnjurwddk .gt_center {
   text-align: center;
 }
 
-#szvlwiplft .gt_right {
+#kdnjurwddk .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#szvlwiplft .gt_font_normal {
+#kdnjurwddk .gt_font_normal {
   font-weight: normal;
 }
 
-#szvlwiplft .gt_font_bold {
+#kdnjurwddk .gt_font_bold {
   font-weight: bold;
 }
 
-#szvlwiplft .gt_font_italic {
+#kdnjurwddk .gt_font_italic {
   font-style: italic;
 }
 
-#szvlwiplft .gt_super {
+#kdnjurwddk .gt_super {
   font-size: 65%;
 }
 
-#szvlwiplft .gt_footnote_marks {
+#kdnjurwddk .gt_two_val_uncert {
+  display: inline-block;
+  line-height: 1em;
+  text-align: right;
+  font-size: 60%;
+  vertical-align: -0.25em;
+  margin-left: 0.1em;
+}
+
+#kdnjurwddk .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
-  font-size: 65%;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+#kdnjurwddk .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#kdnjurwddk .gt_slash_mark {
+  font-size: 0.7em;
+  line-height: 0.7em;
+  vertical-align: 0.15em;
+}
+
+#kdnjurwddk .gt_fraction_numerator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: 0.45em;
+}
+
+#kdnjurwddk .gt_fraction_denominator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: -0.05em;
 }
 </style>
 <table class="table gt_table">
@@ -2011,27 +2287,27 @@ fantome.appendChild(templateContent);
 <td class="gt_row gt_center">175.4</td>
 </tr>
 <tr>
-<td class="gt_row gt_left gt_striped">Log.Lik.</td>
-<td class="gt_row gt_center gt_striped">-80.752</td>
+<td class="gt_row gt_left gt_striped">F</td>
+<td class="gt_row gt_center gt_striped">41.522</td>
 </tr>
 <tr>
-<td class="gt_row gt_left">F</td>
-<td class="gt_row gt_center">41.522</td>
+<td class="gt_row gt_left">RMSE</td>
+<td class="gt_row gt_center">3.02</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">url</span> <span class="op">&lt;-</span> <span class="st">'https://vincentarelbundock.github.io/Rdatasets/csv/palmerpenguins/penguins.csv'</span>
-<span class="va">penguins</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="va">url</span><span class="op">)</span>
+<span class="va">penguins</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span><span class="va">url</span><span class="op">)</span>
 
 <span class="fu"><a href="../reference/datasummary_crosstab.html">datasummary_crosstab</a></span><span class="op">(</span><span class="va">island</span> <span class="op">~</span> <span class="va">sex</span> <span class="op">*</span> <span class="va">species</span>, output <span class="op">=</span> <span class="st">"gt"</span>, data <span class="op">=</span> <span class="va">penguins</span><span class="op">)</span></code></pre></div>
-<div id="aajgijglxt" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="kygapwffoy" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#aajgijglxt .gt_table {
+#kygapwffoy .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -2056,7 +2332,7 @@ fantome.appendChild(templateContent);
   border-left-color: #D3D3D3;
 }
 
-#aajgijglxt .gt_heading {
+#kygapwffoy .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2068,33 +2344,37 @@ fantome.appendChild(templateContent);
   border-right-color: #D3D3D3;
 }
 
-#aajgijglxt .gt_title {
+#kygapwffoy .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
   padding-top: 4px;
   padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
   border-bottom-color: #FFFFFF;
   border-bottom-width: 0;
 }
 
-#aajgijglxt .gt_subtitle {
+#kygapwffoy .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
   padding-top: 0;
   padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
   border-top-color: #FFFFFF;
   border-top-width: 0;
 }
 
-#aajgijglxt .gt_bottom_border {
+#kygapwffoy .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#aajgijglxt .gt_col_headings {
+#kygapwffoy .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2109,7 +2389,7 @@ fantome.appendChild(templateContent);
   border-right-color: #D3D3D3;
 }
 
-#aajgijglxt .gt_col_heading {
+#kygapwffoy .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2129,7 +2409,7 @@ fantome.appendChild(templateContent);
   overflow-x: hidden;
 }
 
-#aajgijglxt .gt_column_spanner_outer {
+#kygapwffoy .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2141,15 +2421,15 @@ fantome.appendChild(templateContent);
   padding-right: 4px;
 }
 
-#aajgijglxt .gt_column_spanner_outer:first-child {
+#kygapwffoy .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#aajgijglxt .gt_column_spanner_outer:last-child {
+#kygapwffoy .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#aajgijglxt .gt_column_spanner {
+#kygapwffoy .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2161,8 +2441,11 @@ fantome.appendChild(templateContent);
   width: 100%;
 }
 
-#aajgijglxt .gt_group_heading {
-  padding: 8px;
+#kygapwffoy .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2183,7 +2466,7 @@ fantome.appendChild(templateContent);
   vertical-align: middle;
 }
 
-#aajgijglxt .gt_empty_group_heading {
+#kygapwffoy .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2198,15 +2481,15 @@ fantome.appendChild(templateContent);
   vertical-align: middle;
 }
 
-#aajgijglxt .gt_from_md > :first-child {
+#kygapwffoy .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#aajgijglxt .gt_from_md > :last-child {
+#kygapwffoy .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#aajgijglxt .gt_row {
+#kygapwffoy .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2225,7 +2508,7 @@ fantome.appendChild(templateContent);
   overflow-x: hidden;
 }
 
-#aajgijglxt .gt_stub {
+#kygapwffoy .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2234,10 +2517,29 @@ fantome.appendChild(templateContent);
   border-right-style: solid;
   border-right-width: 2px;
   border-right-color: #D3D3D3;
-  padding-left: 12px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
-#aajgijglxt .gt_summary_row {
+#kygapwffoy .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#kygapwffoy .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#kygapwffoy .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2247,17 +2549,26 @@ fantome.appendChild(templateContent);
   padding-right: 5px;
 }
 
-#aajgijglxt .gt_first_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
+#kygapwffoy .gt_first_summary_row {
   border-top-style: solid;
-  border-top-width: 2px;
   border-top-color: #D3D3D3;
 }
 
-#aajgijglxt .gt_grand_summary_row {
+#kygapwffoy .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#kygapwffoy .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#kygapwffoy .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2267,7 +2578,7 @@ fantome.appendChild(templateContent);
   padding-right: 5px;
 }
 
-#aajgijglxt .gt_first_grand_summary_row {
+#kygapwffoy .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2277,11 +2588,11 @@ fantome.appendChild(templateContent);
   border-top-color: #D3D3D3;
 }
 
-#aajgijglxt .gt_striped {
+#kygapwffoy .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#aajgijglxt .gt_table_body {
+#kygapwffoy .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2290,7 +2601,7 @@ fantome.appendChild(templateContent);
   border-bottom-color: #D3D3D3;
 }
 
-#aajgijglxt .gt_footnotes {
+#kygapwffoy .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2304,13 +2615,16 @@ fantome.appendChild(templateContent);
   border-right-color: #D3D3D3;
 }
 
-#aajgijglxt .gt_footnote {
+#kygapwffoy .gt_footnote {
   margin: 0px;
   font-size: 90%;
-  padding: 4px;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
-#aajgijglxt .gt_sourcenotes {
+#kygapwffoy .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2324,44 +2638,80 @@ fantome.appendChild(templateContent);
   border-right-color: #D3D3D3;
 }
 
-#aajgijglxt .gt_sourcenote {
+#kygapwffoy .gt_sourcenote {
   font-size: 90%;
-  padding: 4px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
-#aajgijglxt .gt_left {
+#kygapwffoy .gt_left {
   text-align: left;
 }
 
-#aajgijglxt .gt_center {
+#kygapwffoy .gt_center {
   text-align: center;
 }
 
-#aajgijglxt .gt_right {
+#kygapwffoy .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#aajgijglxt .gt_font_normal {
+#kygapwffoy .gt_font_normal {
   font-weight: normal;
 }
 
-#aajgijglxt .gt_font_bold {
+#kygapwffoy .gt_font_bold {
   font-weight: bold;
 }
 
-#aajgijglxt .gt_font_italic {
+#kygapwffoy .gt_font_italic {
   font-style: italic;
 }
 
-#aajgijglxt .gt_super {
+#kygapwffoy .gt_super {
   font-size: 65%;
 }
 
-#aajgijglxt .gt_footnote_marks {
+#kygapwffoy .gt_two_val_uncert {
+  display: inline-block;
+  line-height: 1em;
+  text-align: right;
+  font-size: 60%;
+  vertical-align: -0.25em;
+  margin-left: 0.1em;
+}
+
+#kygapwffoy .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
-  font-size: 65%;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+#kygapwffoy .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#kygapwffoy .gt_slash_mark {
+  font-size: 0.7em;
+  line-height: 0.7em;
+  vertical-align: 0.15em;
+}
+
+#kygapwffoy .gt_fraction_numerator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: 0.45em;
+}
+
+#kygapwffoy .gt_fraction_denominator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: -0.05em;
 }
 </style>
 <table class="table gt_table">
@@ -2370,13 +2720,13 @@ fantome.appendChild(templateContent);
 <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="2" colspan="1">island</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="2" colspan="1"> </th>
       <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="3">
-        <span class="gt_column_spanner">female</span>
+        <span class="gt_column_spanner">female    </span>
       </th>
       <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="3">
-        <span class="gt_column_spanner">male</span>
+        <span class="gt_column_spanner">male    </span>
       </th>
       <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="3">
-        <span class="gt_column_spanner">NA</span>
+        <span class="gt_column_spanner">NA    </span>
       </th>
       <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="2" colspan="1">All</th>
     </tr>
@@ -2510,16 +2860,16 @@ fantome.appendChild(templateContent);
 </div>
 <p>Restore default theme:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span><span class="st">"modelsummary_theme_gt"</span> <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></code></pre></div>
-<div id="themes-data-frame" class="section level2">
-<h2 class="hasAnchor">
-<a href="#themes-data-frame" class="anchor"></a>Themes: Data Frame</h2>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="st">"modelsummary_theme_gt"</span> <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></code></pre></div>
+<div class="section level3">
+<h3 id="themes-data-frame">Themes: Data Frame<a class="anchor" aria-label="anchor" href="#themes-data-frame"></a>
+</h3>
 <p>A particularly flexible strategy is to apply a theme to the <code>dataframe</code> output format. To illustrate, recall that setting <code>output="dataframe"</code> produces a data frame with a lot of extraneous meta information. To produce a nice table, we have to process that output a bit:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">hp</span> <span class="op">+</span> <span class="va">drat</span>, <span class="va">mtcars</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">hp</span> <span class="op">+</span> <span class="va">drat</span>, <span class="va">mtcars</span><span class="op">)</span>
 
 <span class="fu"><a href="../reference/modelsummary.html">modelsummary</a></span><span class="op">(</span><span class="va">mod</span>, output <span class="op">=</span> <span class="st">"dataframe"</span><span class="op">)</span></code></pre></div>
-<table class="table huxtable">
+<table class="table huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-11">
 <col>
 <col>
 <col>
@@ -2533,37 +2883,37 @@ fantome.appendChild(templateContent);
 <tr>
 <td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">estimates</td>
 <td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">(Intercept)</td>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">modelsummary_tmp1</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">estimate</td>
 <td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">10.790</td>
 </tr>
 <tr>
 <td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">estimates</td>
 <td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(Intercept)</td>
-<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">modelsummary_tmp2</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">std.error</td>
 <td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(5.078)</td>
 </tr>
 <tr>
 <td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">estimates</td>
 <td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">hp</td>
-<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">modelsummary_tmp1</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">estimate</td>
 <td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">-0.052</td>
 </tr>
 <tr>
 <td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">estimates</td>
 <td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">hp</td>
-<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">modelsummary_tmp2</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">std.error</td>
 <td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(0.009)</td>
 </tr>
 <tr>
 <td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">estimates</td>
 <td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">drat</td>
-<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">modelsummary_tmp1</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">estimate</td>
 <td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">4.698</td>
 </tr>
 <tr>
 <td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">estimates</td>
 <td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">drat</td>
-<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">modelsummary_tmp2</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">std.error</td>
 <td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(1.192)</td>
 </tr>
 <tr>
@@ -2598,68 +2948,68 @@ fantome.appendChild(templateContent);
 </tr>
 <tr>
 <td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">gof</td>
-<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Log.Lik.</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">F</td>
 <td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></td>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">-80.752</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">41.522</td>
 </tr>
 <tr>
 <td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">gof</td>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">F</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">RMSE</td>
 <td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;"></td>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">41.522</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">3.02</td>
 </tr>
 </table>
 <p>Imagine we want to create a table using the <code>DT</code> package, a table-drawing backend which is not currently supported by <code>modelsummary</code>. To do this, we can create a theming function:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rstudio/DT">DT</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rstudio/DT" class="external-link">DT</a></span><span class="op">)</span>
 
 <span class="va">theme_df</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">tab</span><span class="op">)</span> <span class="op">{</span>
     <span class="va">out</span> <span class="op">&lt;-</span> <span class="va">tab</span>
     <span class="va">out</span><span class="op">$</span><span class="va">term</span><span class="op">[</span><span class="va">out</span><span class="op">$</span><span class="va">statistic</span> <span class="op">==</span> <span class="st">"modelsummary_tmp2"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">" "</span>
     <span class="va">out</span><span class="op">$</span><span class="va">part</span> <span class="op">&lt;-</span> <span class="va">out</span><span class="op">$</span><span class="va">statistic</span> <span class="op">&lt;-</span> <span class="cn">NULL</span>
-    <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">" "</span>
-    <span class="fu"><a href="https://rdrr.io/pkg/DT/man/datatable.html">datatable</a></span><span class="op">(</span><span class="va">out</span>, rownames <span class="op">=</span> <span class="cn">FALSE</span>,
-              options <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>pageLength <span class="op">=</span> <span class="fl">30</span><span class="op">)</span><span class="op">)</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">" "</span>
+    <span class="fu"><a href="https://rdrr.io/pkg/DT/man/datatable.html" class="external-link">datatable</a></span><span class="op">(</span><span class="va">out</span>, rownames <span class="op">=</span> <span class="cn">FALSE</span>,
+              options <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>pageLength <span class="op">=</span> <span class="fl">30</span><span class="op">)</span><span class="op">)</span>
 <span class="op">}</span>
 
-<span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span><span class="st">"modelsummary_theme_dataframe"</span> <span class="op">=</span> <span class="va">theme_df</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="st">"modelsummary_theme_dataframe"</span> <span class="op">=</span> <span class="va">theme_df</span><span class="op">)</span>
 <span class="fu"><a href="../reference/modelsummary.html">modelsummary</a></span><span class="op">(</span><span class="va">mod</span>, output <span class="op">=</span> <span class="st">"dataframe"</span><span class="op">)</span></code></pre></div>
-<div id="htmlwidget-5ae795cefad1ed25ca1e" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-5ae795cefad1ed25ca1e">{"x":{"filter":"none","vertical":false,"data":[["(Intercept)"," ","hp"," ","drat"," ","Num.Obs.","R2","R2 Adj.","AIC","BIC","Log.Lik.","F"],["10.790","(5.078)","-0.052","(0.009)","4.698","(1.192)","32","0.741","0.723","169.5","175.4","-80.752","41.522"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Model 1<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":30,"order":[],"autoWidth":false,"orderClasses":false,"columnDefs":[{"orderable":false,"targets":0}],"lengthMenu":[10,25,30,50,100]}},"evals":[],"jsHooks":[]}</script><p>Restore default theme:</p>
+<div id="htmlwidget-44be21b8ecfa1291b89b" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-44be21b8ecfa1291b89b">{"x":{"filter":"none","vertical":false,"data":[["(Intercept)","(Intercept)","hp","hp","drat","drat","Num.Obs.","R2","R2 Adj.","AIC","BIC","F","RMSE"],["10.790","(5.078)","-0.052","(0.009)","4.698","(1.192)","32","0.741","0.723","169.5","175.4","41.522","3.02"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Model 1<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":30,"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,25,30,50,100]}},"evals":[],"jsHooks":[]}</script><p>Restore default theme:</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span><span class="st">"modelsummary_theme_dataframe"</span> <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="st">"modelsummary_theme_dataframe"</span> <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></code></pre></div>
 </div>
 </div>
-<div id="warning-saving-to-file" class="section level1">
-<h1 class="hasAnchor">
-<a href="#warning-saving-to-file" class="anchor"></a>Warning: Saving to file</h1>
+<div class="section level2">
+<h2 id="warning-saving-to-file">Warning: Saving to file<a class="anchor" aria-label="anchor" href="#warning-saving-to-file"></a>
+</h2>
 <p>When users supply a file name to the <code>output</code> argument, the table is written immediately to file. This means that users cannot post-process and customize the resulting table using functions from <code>gt</code>, <code>kableExtra</code>, <code>huxtable</code>, or <code>flextable</code>. When users specify a filename in the <code>output</code> argument, the <code><a href="../reference/modelsummary.html">modelsummary()</a></code> call should be the <em>final</em> one in the chain.</p>
 <p>This is OK:</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/modelsummary.html">modelsummary</a></span><span class="op">(</span><span class="va">models</span>, output <span class="op">=</span> <span class="st">'table.html'</span><span class="op">)</span></code></pre></div>
 <p>This is <strong>not</strong> OK:</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/modelsummary.html">modelsummary</a></span><span class="op">(</span><span class="va">models</span>, output <span class="op">=</span> <span class="st">'table.html'</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/DT/man/DT-imports.html">%&gt;%</a></span>
-    <span class="fu"><a href="https://gt.rstudio.com/reference/tab_spanner.html">tab_spanner</a></span><span class="op">(</span>label <span class="op">=</span> <span class="st">'Literacy'</span>, columns <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'OLS 1'</span>, <span class="st">'Poisson 1'</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<p>To save a customized table, you should apply all the customization functions you need before saving it using <code><a href="https://gt.rstudio.com/reference/gtsave.html">gt::gtsave</a></code>, <code><a href="https://rdrr.io/pkg/kableExtra/man/save_kable.html">kableExtra::save_kable</a></code>, or the appropriate helper function from the package that you are using to customize your table.</p>
+<code class="sourceCode R"><span class="fu"><a href="../reference/modelsummary.html">modelsummary</a></span><span class="op">(</span><span class="va">models</span>, output <span class="op">=</span> <span class="st">'table.html'</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/DT/man/DT-imports.html" class="external-link">%&gt;%</a></span>
+    <span class="fu"><a href="https://gt.rstudio.com/reference/tab_spanner.html" class="external-link">tab_spanner</a></span><span class="op">(</span>label <span class="op">=</span> <span class="st">'Literacy'</span>, columns <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'OLS 1'</span>, <span class="st">'Poisson 1'</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<p>To save a customized table, you should apply all the customization functions you need before saving it using <code><a href="https://gt.rstudio.com/reference/gtsave.html" class="external-link">gt::gtsave</a></code>, <code><a href="https://rdrr.io/pkg/kableExtra/man/save_kable.html" class="external-link">kableExtra::save_kable</a></code>, or the appropriate helper function from the package that you are using to customize your table.</p>
 <p>For example, to add color column spanners with the <code>gt</code> package:</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://gt.rstudio.com/">gt</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://gt.rstudio.com/" class="external-link">gt</a></span><span class="op">)</span>
 
-<span class="va">tab</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modelsummary.html">modelsummary</a></span><span class="op">(</span><span class="va">models</span>, output <span class="op">=</span> <span class="st">"gt"</span><span class="op">)</span> <span class="op"><a href="https://gt.rstudio.com/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://gt.rstudio.com/reference/tab_spanner.html">tab_spanner</a></span><span class="op">(</span>label <span class="op">=</span> <span class="st">'Donations'</span>, columns <span class="op">=</span> <span class="fl">2</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span> <span class="op"><a href="https://gt.rstudio.com/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://gt.rstudio.com/reference/tab_spanner.html">tab_spanner</a></span><span class="op">(</span>label <span class="op">=</span> <span class="st">'Crimes (persons)'</span>, columns <span class="op">=</span> <span class="fl">4</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span> <span class="op"><a href="https://gt.rstudio.com/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://gt.rstudio.com/reference/tab_spanner.html">tab_spanner</a></span><span class="op">(</span>label <span class="op">=</span> <span class="st">'Crimes (property)'</span>, columns <span class="op">=</span> <span class="fl">6</span><span class="op">)</span>
+<span class="va">tab</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modelsummary.html">modelsummary</a></span><span class="op">(</span><span class="va">models</span>, output <span class="op">=</span> <span class="st">"gt"</span><span class="op">)</span> <span class="op"><a href="https://gt.rstudio.com/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu"><a href="https://gt.rstudio.com/reference/tab_spanner.html" class="external-link">tab_spanner</a></span><span class="op">(</span>label <span class="op">=</span> <span class="st">'Donations'</span>, columns <span class="op">=</span> <span class="fl">2</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span> <span class="op"><a href="https://gt.rstudio.com/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu"><a href="https://gt.rstudio.com/reference/tab_spanner.html" class="external-link">tab_spanner</a></span><span class="op">(</span>label <span class="op">=</span> <span class="st">'Crimes (persons)'</span>, columns <span class="op">=</span> <span class="fl">4</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span> <span class="op"><a href="https://gt.rstudio.com/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu"><a href="https://gt.rstudio.com/reference/tab_spanner.html" class="external-link">tab_spanner</a></span><span class="op">(</span>label <span class="op">=</span> <span class="st">'Crimes (property)'</span>, columns <span class="op">=</span> <span class="fl">6</span><span class="op">)</span>
 
-<span class="fu">gt</span><span class="fu">::</span><span class="fu"><a href="https://gt.rstudio.com/reference/gtsave.html">gtsave</a></span><span class="op">(</span><span class="va">tab</span>, filename <span class="op">=</span> <span class="st">"table.html"</span><span class="op">)</span></code></pre></div>
+<span class="fu">gt</span><span class="fu">::</span><span class="fu"><a href="https://gt.rstudio.com/reference/gtsave.html" class="external-link">gtsave</a></span><span class="op">(</span><span class="va">tab</span>, filename <span class="op">=</span> <span class="st">"table.html"</span><span class="op">)</span></code></pre></div>
 <p>The procedure is slightly different with <code>kableExtra</code>, because this package needs to know the <em>final</em> output format immediately when the table is created. For instance, if we want to produce, customize, and save a LaTeX table:</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://haozhu233.github.io/kableExtra/">kableExtra</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://haozhu233.github.io/kableExtra/" class="external-link">kableExtra</a></span><span class="op">)</span>
 
-<span class="va">tab</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modelsummary.html">modelsummary</a></span><span class="op">(</span><span class="va">models</span>, output <span class="op">=</span> <span class="st">'latex'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://rdrr.io/pkg/kableExtra/man/add_header_above.html">add_header_above</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">" "</span> <span class="op">=</span> <span class="fl">1</span>, <span class="st">"Donations"</span> <span class="op">=</span> <span class="fl">2</span>, <span class="st">"Crimes (person)"</span> <span class="op">=</span> <span class="fl">2</span>, <span class="st">"Crimes (property)"</span> <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span>
+<span class="va">tab</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modelsummary.html">modelsummary</a></span><span class="op">(</span><span class="va">models</span>, output <span class="op">=</span> <span class="st">'latex'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu"><a href="https://rdrr.io/pkg/kableExtra/man/add_header_above.html" class="external-link">add_header_above</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">" "</span> <span class="op">=</span> <span class="fl">1</span>, <span class="st">"Donations"</span> <span class="op">=</span> <span class="fl">2</span>, <span class="st">"Crimes (person)"</span> <span class="op">=</span> <span class="fl">2</span>, <span class="st">"Crimes (property)"</span> <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span>
 
-<span class="fu">kableExtra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/kableExtra/man/save_kable.html">save_kable</a></span><span class="op">(</span><span class="va">tab</span>, file <span class="op">=</span> <span class="st">"table.tex"</span><span class="op">)</span></code></pre></div>
+<span class="fu">kableExtra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/kableExtra/man/save_kable.html" class="external-link">save_kable</a></span><span class="op">(</span><span class="va">tab</span>, file <span class="op">=</span> <span class="st">"table.tex"</span><span class="op">)</span></code></pre></div>
 </div>
   </div>
 
@@ -2674,11 +3024,13 @@ fantome.appendChild(templateContent);
 
 
       <footer><div class="copyright">
-  <p>Developed by Vincent Arel-Bundock.</p>
+  <p></p>
+<p>Developed by Vincent Arel-Bundock.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
 </div>
 
       </footer>
@@ -2686,6 +3038,8 @@ fantome.appendChild(templateContent);
 
   
 
+
+  
 
   </body>
 </html>
